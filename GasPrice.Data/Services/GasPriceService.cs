@@ -69,14 +69,14 @@ namespace GasPrice.Data.Services
         {
             var c = new HttpClient();
             //returns eth gas price in gWei
-            var r = c.GetStringAsync("https://ethgasstation.info/json/ethgasAPI.json").Result;
+            var r = c.GetStringAsync("https://api.blocknative.com/gasprices/blockprices?confidenceLevels=50&confidenceLevels=70&confidenceLevels=90#").Result;
 
             var o = JsonConvert.DeserializeObject<EthGasPriceDTOModel>(r);
 
             return new Tuple<decimal, decimal, decimal>(
-                (decimal)o.safeLow / 100,
-                (decimal)o.average / 100,
-                (decimal)o.fast / 100);
+                (decimal)o.BlockPrices[0].EstimatedPrices[2].Price / 100,
+                (decimal)o.BlockPrices[0].EstimatedPrices[1].Price / 100,
+                (decimal)o.BlockPrices[0].EstimatedPrices[0].Price / 100);
         }
     }
 
