@@ -120,4 +120,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="pipelinePreDeployCopyAllFilesToOneFolder" BeforeTargets="PrepareForPublish">
+    <!-- Add your copying logic here if you need to copy specific files to a single folder before deployment -->
+  </Target>
 </Project>
