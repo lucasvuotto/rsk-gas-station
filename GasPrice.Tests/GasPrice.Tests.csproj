@@ -131,4 +131,7 @@
     <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.2.1\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.2.1\build\net45\MSTest.TestAdapter.targets'))" />
   </Target>
   <Import Project="..\packages\MSTest.TestAdapter.1.2.1\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.2.1\build\net45\MSTest.TestAdapter.targets')" />
+  <Target Name="pipelinePreDeployCopyAllFilesToOneFolder" BeforeTargets="PrepareForPublish">
+    <!-- Add your copying logic here if you need to copy specific files to a single folder before deployment -->
+  </Target>
 </Project>
