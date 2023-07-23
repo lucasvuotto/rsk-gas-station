@@ -74,9 +74,9 @@ namespace GasPrice.Data.Services
             var o = JsonConvert.DeserializeObject<EthGasPriceDTOModel>(r);
 
             return new Tuple<decimal, decimal, decimal>(
-                (decimal)o.BlockPrices[0].EstimatedPrices[2].Price / 100,
-                (decimal)o.BlockPrices[0].EstimatedPrices[1].Price / 100,
-                (decimal)o.BlockPrices[0].EstimatedPrices[0].Price / 100);
+                (decimal)o.BlockPrices[0].EstimatedPrices[2].Price,
+                (decimal)o.BlockPrices[0].EstimatedPrices[1].Price,
+                (decimal)o.BlockPrices[0].EstimatedPrices[0].Price);
         }
     }
 
